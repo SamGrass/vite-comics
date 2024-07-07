@@ -15,11 +15,13 @@
 </script>
 
 <template>
-  <HeaderApp/>
-  <MainApp/>
-  <FooterApp/>
+  <div class="container">
+    <HeaderApp/>
+    <MainApp/>
+    <FooterApp/>
+  </div> 
 </template>
 
-<style lang="scss" scoped>
-
+<style lang="scss">
+  @use './styles/general.scss' as *
 </style>
