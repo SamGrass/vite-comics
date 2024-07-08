@@ -71,6 +71,13 @@
                             'DC Power Visa',
                         ]
                     },
+                ],
+                socials: [
+                    'footer-facebook.png',
+                    'footer-periscope.png',
+                    'footer-pinterest.png',
+                    'footer-twitter.png',
+                    'footer-youtube.png'
                 ]
             }
         },
@@ -118,15 +125,19 @@
         <div class="socials">
             <div class="container">
                 <!-- sign up sx-->
-                <div>
+                <a href="#!" class="btn-sign-up">
                     SIGN-UP NOW!
-                </div>
+                </a>
 
                 <!-- socials dx-->
-                <div>
+                <div class="social-icons">
                     <h3>FOLLOW US</h3>
                     <ul>
-                        <li>twitter</li>
+                        <li v-for="(social, index) in socials" :key="index" >
+                            <a href="#!">
+                                <img :src="getImagePath(`../assets/${social}`)" :alt="social">
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -143,7 +154,7 @@
         color: #fff;
 
         .shop {
-            padding: 2.5rem 0;
+            padding: 1rem 0;
             background-color: $primary;
 
             .shop-container {
@@ -208,6 +219,25 @@
         .socials {
             padding: 1rem 0;
             background-color: #303030;
+            
+            .container {
+                @include flex-center('vertical');
+                justify-content: space-between;
+
+                a {
+                    display: block
+                }
+                .social-icons {
+                    @include flex-center();
+                    gap: 1rem;
+                    color: $primary;
+
+                    ul {
+                        @include flex-center();
+                        gap: 0.5rem;
+                    }
+                }
+            }
         }
     }
     
