@@ -78,6 +78,7 @@
             </nav>
         </header>
     </div>
+    <div class="jumbotron"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -112,9 +113,11 @@
                     a   {
                         display: block;
                         height: 100%;
+                        font-size: 0.9rem;
                         font-weight: 500;
                         @include flex-center('vertical');
                         transition: all 50ms ease;
+
 
                         &.active,
                         &:hover {
@@ -124,7 +127,12 @@
                     }   
                 }    
             }
-        }   
-            
+        }           
+    }
+
+    .jumbotron {
+        height: 400px;
+        background-image: url(../assets/jumbotron.jpg);
+
     }
 </style>
