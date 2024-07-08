@@ -3,6 +3,28 @@
         name: "FooterApp",
         data() {
             return {
+                shopItems: [
+                    {
+                        image: 'buy-comics-digital-comics.png',
+                        text: 'DIGITAL COMICS'
+                    },
+                    {
+                        image: 'buy-comics-merchandise.png',
+                        text: 'DC MERCHANDISE'
+                    },
+                    {
+                        image: 'buy-comics-shop-locator.png',
+                        text: 'SUBSCRIPTION'
+                    },
+                    {
+                        image: 'buy-comics-subscriptions.png',
+                        text: 'COMIC SHOP LOCATOR'
+                    },
+                    {
+                        image: 'buy-dc-power-visa.svg',
+                        text: 'DC POWER VISA'
+                    },
+                ],
                 usefulLinks: [
                     {
                         title: 'DC COMICS',
@@ -52,6 +74,11 @@
                 ]
             }
         },
+        methods: {
+            getImagePath: function (imgPath) {
+                return new URL(imgPath, import.meta.url).href;
+            }
+        }
     }
 </script>
 
@@ -59,7 +86,20 @@
     <footer class="">
         <!-- link acquisti -->
         <div class="shop">
-
+            <div class="container shop-container">
+                <ul>
+                    <li v-for="(item, index) in shopItems" :key="index">
+                        <a href="#!">
+                            <div class="image-container">
+                                <img :src="getImagePath(`../assets/${item.image}`)" :alt="item.text">
+                            </div>
+                            <div class="shop-text">
+                                {{item.text}}
+                            </div>
+                        </a>  
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- link footer -->
         <div class="useful-links">
@@ -105,6 +145,34 @@
         .shop {
             padding: 2.5rem 0;
             background-color: $primary;
+
+            .shop-container {
+                padding: 0 3rem;
+                
+                ul {
+                    @include flex-center();
+                    justify-content: space-between;
+
+                    li a {
+                        @include flex-center();
+
+                        .image-container {
+                            transform: scale(50%);
+
+                            img {
+                                display: block;
+                            }
+                        }
+
+                        .shop-text {
+                            font-size: 0.8rem;
+                            color: #fff;
+                        }
+                    }   
+                }
+                
+                
+            }
         }
 
         .useful-links {
