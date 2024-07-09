@@ -15,11 +15,11 @@
 </script>
 
 <template>
-  <div class="container">
-    <HeaderApp/>
-    <MainApp/>
-    <FooterApp/>
-  </div> 
+
+  <HeaderApp/>
+  <MainApp/>
+  <FooterApp/>
+   
 </template>
 
 <style lang="scss">
